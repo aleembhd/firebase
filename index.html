@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Information Form</h1>
+        <div id="loginSection">
+            <h2>Sign In</h2>
+            <form id="emailPasswordForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign In with Email</button>
+            </form>
+            <button id="googleSignIn">Sign in with Google</button>
+            <p>Don't have an account? <a href="#" id="showSignUp">Sign Up</a></p>
+        </div>
+        <div id="signUpSection" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <input type="email" id="signUpEmail" placeholder="Email" required>
+                <input type="password" id="signUpPassword" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showSignIn">Sign In</a></p>
+        </div>
+        <div id="formSection" style="display: none;">
+            <form id="studentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber" required>
+
+                <label for="college">College:</label>
+                <input type="text" id="college" required>
+
+                <button type="submit">Save</button>
+            </form>
+            <button id="signOut">Sign Out</button>
+            
+            <!-- Add search functionality -->
+            <div id="searchSection">
+                <h2>Search Student</h2>
+                <input type="text" id="searchRollNumber" placeholder="Enter Roll Number">
+                <button id="searchButton">Search</button>
+                <div id="searchResult"></div>
+            </div>
+        </div>
+        <div id="message"></div>
+    </div>
+    
+    <!-- Add Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+        import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        window.initializeApp = initializeApp;
+        window.getDatabase = getDatabase;
+        window.getAuth = getAuth;
+        window.GoogleAuthProvider = GoogleAuthProvider;
+    </script>
+    
+    <script src="script.js" type="module"></script>
+</body>
+</html>
